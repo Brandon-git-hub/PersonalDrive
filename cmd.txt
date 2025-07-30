@@ -11,6 +11,7 @@ curl http://192.168.4.1/info
 
 ## PDK
 update_pdk.bat .bin 192.168.4.1 1
+.\update_pdk.bat P005WRT/EXT_ALL/WRT_G9_P005.bin 192.168.4.1 1
 
 ## SPIFFS
 curl http://192.168.4.1/spiffs/list?json=1
