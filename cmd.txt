@@ -1,0 +1,34 @@
+
+## diag
+curl http://192.168.4.1/ping
+curl http://192.168.4.1/heap
+curl http://192.168.4.1/info
+
+## OTA
+
+## Reset
+
+
+## PDK
+update_pdk.bat .bin 192.168.4.1 1
+
+## SPIFFS
+curl http://192.168.4.1/spiffs/list?json=1
+curl -X POST "http://192.168.4.1/spiffs/del?name="
+curl -X POST "http://192.168.4.1/spiffs/clear"
+curl -X POST "http://192.168.4.1/spiffs/rename?old=&new="
+curl -X POST "http://192.168.4.1/spiffs/format?remount=1"
+
+
+## Writer
+curl -X POST "http://192.168.4.1/writer/housing?sync=1&sn=1999"
+curl http://192.168.4.1/writer/mem_read?"addr=0x08008000&size=256&sync=1"
+curl -X POST "http://192.168.4.1/writer/mem_write?addr=0x08008000&size=0x0800&sync=1"
+curl -X POST "http://192.168.4.1/writer/mem_erase?addr=0x08008000&size=0x38000&sync=1"
+curl http://192.168.4.1/writer/blank_check?"addr=0x08008000&size=0x38000&sync=1"
+curl -X POST "http://192.168.4.1/writer/flash_dl?fname=mib.bin&addr=0x08008000&sync=1"
+curl -X POST "http://192.168.4.1/writer/verify?fname=mib.bin&addr=0x08008000&sync=1"
+
+## Mosquitto
+mosquitto -c mosq.conf -v
+mosquitto_pub -h 10.232.127.117 -t device/983DAEB5C570/cmd/diag/ping -n
