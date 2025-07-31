@@ -27,8 +27,9 @@ curl http://192.168.4.1/writer/mem_read?"addr=0x08008000&size=256&sync=1"
 curl -X POST "http://192.168.4.1/writer/mem_write?addr=0x08008000&size=0x0800&sync=1"
 curl -X POST "http://192.168.4.1/writer/mem_erase?addr=0x08008000&size=0x38000&sync=1"
 curl http://192.168.4.1/writer/blank_check?"addr=0x08008000&size=0x38000&sync=1"
-curl -X POST "http://192.168.4.1/writer/flash_dl?fname=mib.bin&addr=0x08008000&sync=1"
-curl -X POST "http://192.168.4.1/writer/verify?fname=mib.bin&addr=0x08008000&sync=1"
+curl -X POST "http://192.168.4.1/writer/flash_dl?fname=WRT_G9_P005.bin&addr=0x08008000&sync=1"
+curl -X POST "http://192.168.4.1/writer/verify?fname=WRT_G9_P005.bin&addr=0x08008000&sync=1"
+curl -X POST "http://192.168.4.1/writer/reboot?version=1&sync=1"
 
 ## Mosquitto
 mosquitto -c mosq.conf -v
