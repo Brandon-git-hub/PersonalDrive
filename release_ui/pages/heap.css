@@ -1,0 +1,6 @@
+body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+     margin:1rem;max-width:800px}
+h2{margin-top:0}
+button,input[type=file]{margin:.3rem .6rem .3rem 0}
+pre{background:#eee;padding:.8rem;border-radius:6px;white-space:pre-wrap}
+progress{height:16px}

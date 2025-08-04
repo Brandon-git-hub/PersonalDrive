@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="heap.css"/>
+<title>OTA Upload</title>
+</head><body>
+<h2>OTA 韌體上傳</h2>
+<input type="file" id="file" accept=".bin,.bin.gz"/>
+<label><input type="checkbox" id="async" checked/> 非同步 (建議)</label>
+<br><progress id="bar" value="0" max="100" style="width:100%;"></progress>
+<pre id="msg"></pre>
+
+<script type="module" src="../js/common.js"></script>
+<script type="module" src="../js/ota.js"></script>
+</body></html>

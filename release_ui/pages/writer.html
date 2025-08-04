@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="zh-Hant">
+<head><meta charset="utf-8"/>
+<link rel="stylesheet" href="heap.css"/>
+<title>Writer Commands</title></head>
+<body>
+<h2>Writer 操作</h2>
+<label>Operation:
+<select id="op">
+  <option value="housing">Housing</option>
+  <option value="mem_read">Mem Read</option>
+  <option value="mem_write">Mem Write</option>
+  <option value="mem_erase">Mem Erase</option>
+  <option value="flash_dl">Flash Download</option>
+  <option value="blank_check">Blank Check</option>
+  <option value="verify">Verify</option>
+  <option value="reboot">Reboot</option>
+</select></label>
+<div id="form" style="margin-top:.5rem;"></div>
+<pre id="out"></pre>
+<script type="module" src="../js/common.js"></script>
+<script type="module" src="../js/writer.js"></script>
+</body></html>

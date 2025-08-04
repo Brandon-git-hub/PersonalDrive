@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="heap.css"/>
+<title>Dashboard</title>
+</head><body>
+<h2>系統資訊</h2>
+<button id="ping">Ping</button>
+<button id="heap">Heap</button>
+<pre id="out">請點按按鈕查詢...</pre>
+
+<script type="module" src="../js/common.js"></script>
+<script type="module">
+import {getJSON} from '../js/common.js';
+const out = document.getElementById('out');
+document.getElementById('ping').onclick = async()=>{
+  try{ const txt = await fetch('/ping').then(r=>r.text());
+       out.textContent = `Ping 回應：${txt.trim()}`; }
+  catch(e){ out.textContent = 'Ping 失敗：'+e; }
+};
+document.getElementById('heap').onclick = async()=>{
+  try{ const val = await fetch('/heap').then(r=>r.text());
+       out.textContent = `Free Heap：${val} bytes`; }
+  catch(e){ out.textContent = 'Heap 查詢失敗：'+e; }
+};
+// 進站自動撈 /info
+(async()=>{
+  try{ const j=await getJSON('/info');
+       out.textContent = JSON.stringify(j,null,2); }
+  catch(e){ /* 忽略 */ }
+})();
+</script>
+</body></html>

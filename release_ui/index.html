@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <title>P005 Writer</title>
+  <link rel="stylesheet" href="pages/heap.css" />
+  <style>
+    body {
+      margin:0;
+      font-family: sans-serif;
+      background:#f5f5f7
+    }
+    header {
+      width: 100%;
+      /*max-width: 420px;           跟 .card 同宽 */
+      margin: 0 auto;            /* 水平居中整个横幅 */
+      display: flex;
+      /*justify-content:  space-between;    Logo 居中: center */
+      align-items: center;
+      padding: 0.5rem 1rem 0.5rem; /* 上右下内边距，下边留 1.5rem */
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%); /* 在极窄屏保证横幅居中 */
+      z-index: 100;
+    }
+    header img {
+      height: 40px;
+      object-fit: contain;
+      margin-left:1rem;
+      margin-right:5rem
+    }
+    nav a {
+      color:#000;
+      font-family:  sans-serif;
+      font-weight:bold;
+      margin-right:1rem;
+      text-decoration:none
+    }
+    nav a.active {
+      font-weight:bold;
+      text-decoration:underline
+    }
+    iframe{border:none;width:100%;height:calc(100vh - 48px)}
+  </style>
+
+  <script type="module">
+    // 導航列點擊 → 換 iframe src
+    const nav = document.querySelector('nav');
+    const frame = () => document.getElementById('view');
+    nav.addEventListener('click', e=>{
+      if(e.target.tagName!=='A') return;
+      e.preventDefault();
+      [...nav.querySelectorAll('a')].forEach(a=>a.classList.remove('active'));
+      e.target.classList.add('active');
+      frame().src = e.target.href;
+    });
+    // 預設載 dashboard
+    window.addEventListener('DOMContentLoaded',()=>nav.querySelector('a').click());
+  </script>
+</head>
+<!-- Body -->
+<body>
+  <header>
+    <img src="assets/logo.png" alt="logo" />
+    <nav>
+      <a href="pages/dashboard.html">系統資訊</a>
+      <a href="pages/ota.html">OTA 更新</a>
+      <a href="pages/pdk.html">PDK</a>
+      <a href="pages/spiffs.html">SPIFFS</a>
+      <a href="pages/writer.html">Writer</a>
+      <a href="pages/reset.html">Reset</a>
+    </nav>
+  </header>
+  <iframe id="view" title="content"></iframe>
+</body>
+</html>

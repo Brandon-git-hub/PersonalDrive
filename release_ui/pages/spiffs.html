@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="zh-Hant">
+<head><meta charset="utf-8"/>
+<link rel="stylesheet" href="heap.css"/>
+<title>SPIFFS Manager</title></head>
+<body>
+<h2>SPIFFS 檔案管理</h2>
+<button id="refresh">重新整理</button>
+<input type="file" id="upload" multiple/>
+<table id="files" border="1" style="width:100%;margin-top:.5rem;">
+  <thead><tr><th>名稱</th><th>大小</th><th>動作</th></tr></thead>
+  <tbody></tbody>
+</table>
+<pre id="msg"></pre>
+<script type="module" src="../js/common.js"></script>
+<script type="module" src="../js/spiffs.js"></script>
+</body></html>

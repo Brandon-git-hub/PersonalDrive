@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="zh-Hant">
+<head><meta charset="utf-8"/>
+<link rel="stylesheet" href="heap.css"/>
+<title>PDK Upload</title></head>
+<body>
+<h2>PDK 上傳</h2>
+<input type="file" id="file" accept=".bin,.bin.gz"/>
+<label><input type="checkbox" id="sync"/> 同步 (Sync)</label>
+<br>
+<progress id="bar" value="0" max="100" style="width:100%;"></progress>
+<pre id="msg"></pre>
+<script type="module" src="../js/common.js"></script>
+<script type="module" src="../js/pdk.js"></script>
+</body></html>
